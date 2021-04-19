@@ -9,6 +9,8 @@ app = Flask(__name__)
 def main():
     event = from_http(request.headers, request.get_data())
 
+    app.logger.warning(event)
+
 # you can access cloudevent fields as seen below
     print(
         f"Found {event['id']} from {event['source']} with type "
